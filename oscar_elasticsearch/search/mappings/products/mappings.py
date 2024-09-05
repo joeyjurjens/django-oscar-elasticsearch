@@ -1,6 +1,5 @@
 import odin
 
-from django.contrib.contenttypes.models import ContentType
 from django.utils import timezone
 from django.utils.html import strip_tags
 from django.db.models import QuerySet

@@ -73,7 +73,9 @@ class ProductElasticsearchIndex(BaseElasticSearchApi, ESModelIndexer):
 
             # profiler = cProfile.Profile()
             # profiler.enable()
-            result = dict_codec.dump(product_document_resources, include_type_field=False)
+            result = dict_codec.dump(
+                product_document_resources, include_type_field=False
+            )
             # profiler.disable()
             # s = io.StringIO()
             # sortby = 'cumulative'

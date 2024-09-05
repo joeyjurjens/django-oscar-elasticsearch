@@ -8,6 +8,7 @@ chunked = get_class("search.utils", "chunked")
 ProductElasticsearchIndex = get_class("search.api.product", "ProductElasticsearchIndex")
 Product = get_model("catalogue", "Product")
 
+
 class Command(BaseCommand):
     def handle(self, *args, **options):
         # Record the start time for the entire indexing process
@@ -22,7 +23,7 @@ class Command(BaseCommand):
             self.stdout.write(self.style.SUCCESS("No products found. Index cleared."))
             return
 
-        total_chunks = (products_count + settings.INDEXING_CHUNK_SIZE - 1) // settings.INDEXING_CHUNK_SIZE
+        total_chunks = products_count + settings.INDEXING_CHUNK_SIZE - 1
         processed_chunks = 0
         processed_products = 0
 
@@ -55,6 +56,7 @@ class Command(BaseCommand):
 
         self.stdout.write(
             self.style.SUCCESS(
-                "\n%i products successfully indexed in %.2f seconds" % (processed_products, total_time)
+                "\n%i products successfully indexed in %.2f seconds"
+                % (processed_products, total_time)
             )
         )
