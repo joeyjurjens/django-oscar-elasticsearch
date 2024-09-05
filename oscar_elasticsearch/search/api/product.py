@@ -67,4 +67,17 @@ class ProductElasticsearchIndex(BaseElasticSearchApi, ESModelIndexer):
                 product_resources
             )
 
-            return dict_codec.dump(product_document_resources, include_type_field=False)
+            # import cProfile
+            # import pstats
+            # import io
+
+            # profiler = cProfile.Profile()
+            # profiler.enable()
+            result = dict_codec.dump(product_document_resources, include_type_field=False)
+            # profiler.disable()
+            # s = io.StringIO()
+            # sortby = 'cumulative'
+            # ps = pstats.Stats(profiler, stream=s).sort_stats(sortby)
+            # ps.print_stats(35)
+            # print(s.getvalue())
+            return result

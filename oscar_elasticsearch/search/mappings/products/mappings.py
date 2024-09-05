@@ -80,8 +80,7 @@ class ProductMapping(OscarBaseMapping):
 
     @odin.assign_field
     def content_type(self) -> str:
-        content_type = ContentType.objects.get_for_model(Product)
-        return ".".join(content_type.natural_key())
+        return "catalogue.product"
 
     @odin.assign_field(to_list=True)
     def categories(self) -> str:
